@@ -24,11 +24,11 @@ jobs:
               git branch -d master
               cd ..
             fi
-            make
+            make CXXFLAGS='-g -O0'
       - run:
           name: Run Test
           command: |
-            make check
+            make check CXXFLAGS='-g -O0'
             cat test/cppcheck.sh.log
             cat test/test.log
             cat test/test-gcov.log
