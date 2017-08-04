@@ -35,6 +35,7 @@ template <typename _Class, typename _Type>
 class TestTextPurifier : public CPPUNIT_NS::TestFixture
 {
     CPPUNIT_TEST_SUITE(_Class);
+    CPPUNIT_TEST(testNull);
     CPPUNIT_TEST(testEmpty);
     CPPUNIT_TEST(testAddWord);
     CPPUNIT_TEST(testAddList);
@@ -65,6 +66,11 @@ public:
     }
 
 protected:
+    void testNull()
+    {
+        TestUtil::testNull<_Type>();
+    }
+
     void testEmpty()
     {
         TestUtil::testEmpty<_Type>(_handle);

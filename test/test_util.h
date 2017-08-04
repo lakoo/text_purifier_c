@@ -401,6 +401,20 @@ namespace TestUtil
     //--------------------------------------------------------------------------
 
     template <typename _Type>
+    void testNull()
+    {
+        tp_func<_Type>::add_func(NULL, NULL);
+        tp_func<_Type>::add_list_func(NULL, NULL, 0);
+        CPPUNIT_ASSERT(NULL == tp_func<_Type>::purify2str(NULL, NULL, NULL));
+        CPPUNIT_ASSERT(NULL == tp_func<_Type>::purify2char(NULL, NULL, CHARACTER(_Type, '*'), 0));
+        CPPUNIT_ASSERT(NULL == tp_func<_Type>::purify2char(NULL, NULL, CHARACTER(_Type, '*'), 1));
+        tp_func<_Type>::free_str(NULL, NULL);
+        CPPUNIT_ASSERT_EQUAL(FALSE, tp_func<_Type>::check_func(NULL, NULL));
+    }
+
+    //--------------------------------------------------------------------------
+
+    template <typename _Type>
     void testAddWord(void* handle)
     {
         testEmpty<_Type>(handle);
