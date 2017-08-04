@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.69])
 AC_INIT([Text Purifier],
-        [0.9.0],
+        [0.9.1],
         [aludirk@lakoo.com],
         [textpurifier],
         [https://github.com/lakoo/text_purifier_c])
@@ -51,5 +51,6 @@ AC_CHECK_FUNCS([memset setlocale])
 AC_CONFIG_FILES([
     Makefile
     src/Makefile
+    test/Makefile
 ])
 AC_OUTPUT

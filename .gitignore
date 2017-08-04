@@ -24,6 +24,7 @@ Makefile
 Makefile.in
 missing
 stamp-h1
+test-driver
 
 # Doxygen
 Doxyfile
@@ -35,3 +36,13 @@ html/
 *.la
 *.lo
 *.o
+
+# test
+test/cppcheck.sh.log
+test/cppcheck.sh.trs
+test/test
+test/test-suite.log
+test/test.log
+test/test.trs
+test/valgrind.sh.log
+test/valgrind.sh.trs

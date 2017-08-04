@@ -1,4 +1,4 @@
-# Text Purifier (0.9.0)
+# Text Purifier (0.9.1)
 
 - [Introduction](#introduction)
 - [Installation](#installation)
