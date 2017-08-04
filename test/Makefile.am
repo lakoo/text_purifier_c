@@ -23,5 +23,22 @@ test_SOURCES = \
 
 ################################################################################
 
+TESTS += test-gcov
+check_PROGRAMS += test-gcov
+
+test_gcov_CXXFLAGS = ${AM_CXXFLAGS} -ftest-coverage -fprofile-arcs
+test_gcov_LDFLAGS = ${AM_LDFLAGS} -ftest-coverage -fprofile-arcs
+
+test_gcov_LDADD = -lcppunit -ltextpurifier.gcov
+
+test_gcov_SOURCES = ${test_SOURCES}
+
+################################################################################
+
 TESTS += valgrind.sh
 check_SCRIPTS += valgrind.sh
+
+################################################################################
+
+clean-local:
+	rm -f *.gcda *.gcno *.gcov

@@ -20,3 +20,4 @@ all-local: update_readme
 
 clean-local:
 	rm -rf html/
+	rm -f *.gcov

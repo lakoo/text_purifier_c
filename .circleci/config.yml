@@ -31,7 +31,12 @@ jobs:
             make check
             cat test/cppcheck.sh.log
             cat test/test.log
+            cat test/test-gcov.log
             cat test/valgrind.sh.log
+      - run:
+          name: Codecov
+          command: |
+            bash <(curl -s https://codecov.io/bash) -Z
       - deploy:
           name: Deploy
           command: |

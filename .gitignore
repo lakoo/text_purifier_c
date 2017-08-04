@@ -37,10 +37,18 @@ html/
 *.lo
 *.o
 
+# gcov
+*.gcda
+*.gcno
+*.gcov
+
 # test
 test/cppcheck.sh.log
 test/cppcheck.sh.trs
 test/test
+test/test-gcov
+test/test-gcov.log
+test/test-gcov.trs
 test/test-suite.log
 test/test.log
 test/test.trs
