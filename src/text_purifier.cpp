@@ -46,90 +46,80 @@ void text_purifier_destroy(void* handle)
 
 void text_purifier_add(void* handle, const char* str)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return;
+        TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        tp->add(str);
     }
-
-    TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    tp->add(str);
 }
 
 void text_purifier_wadd(void* handle, const wchar_t* str)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return;
+        TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        tp->add(str);
     }
-
-    TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    tp->add(str);
 }
 
 void text_purifier_add_list(void* handle, const char* const* list, size_t count)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return;
+        TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        tp->add(list, static_cast<std::size_t>(count));
     }
-
-    TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    tp->add(list, static_cast<std::size_t>(count));
 }
 
 void text_purifier_add_wlist(void* handle, const wchar_t* const* list, size_t count)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return;
+        TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        tp->add(list, static_cast<std::size_t>(count));
     }
-
-    TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    tp->add(list, static_cast<std::size_t>(count));
 }
 
 const char* text_purifier_purify2str(void* handle, const char* str, const char* mask)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return nullptr;
+        const TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        return tp->purify(str, mask);
     }
 
-    const TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    return tp->purify(str, mask);
+    return nullptr;
 }
 
 const char* text_purifier_purify2char(void* handle, const char* str, char mask, char isMatchSize)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return nullptr;
+        const TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        return tp->purify(str, mask, static_cast<bool>(isMatchSize));
     }
 
-    const TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    return tp->purify(str, mask, static_cast<bool>(isMatchSize));
+    return nullptr;
 }
 
 void text_purifier_free_str(void* handle, const char* str)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return;
+        const TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        tp->freePurifiedString(str);
     }
-
-    const TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    tp->freePurifiedString(str);
 }
 
 const wchar_t* text_purifier_wpurify2str(void* handle, const wchar_t* str, const wchar_t* mask)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return nullptr;
+        const TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        return tp->purify(str, mask);
     }
 
-    const TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    return tp->purify(str, mask);
+    return nullptr;
 }
 
 const wchar_t* text_purifier_wpurify2char(void* handle,
@@ -137,44 +127,42 @@ const wchar_t* text_purifier_wpurify2char(void* handle,
                                           wchar_t mask,
                                           char isMatchSize)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return nullptr;
+        const TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        return tp->purify(str, mask, static_cast<bool>(isMatchSize));
     }
 
-    const TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    return tp->purify(str, mask, static_cast<bool>(isMatchSize));
+    return nullptr;
 }
 
 void text_purifier_free_wstr(void* handle, const wchar_t* str)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return;
+        const TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        tp->freePurifiedString(str);
     }
-
-    const TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    tp->freePurifiedString(str);
 }
 
 char text_purifier_check(void* handle, const char* str)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return 0;
+        const TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        return tp->check(str) ? 1 : 0;
     }
 
-    const TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    return tp->check(str) ? 1 : 0;
+    return 0;
 }
 
 char text_purifier_wcheck(void* handle, const wchar_t* str)
 {
-    if(nullptr == handle)
+    if(nullptr != handle)
     {
-        return 0;
+        const TextPurifier* tp = static_cast<TextPurifier*>(handle);
+        return tp->check(str) ? 1 : 0;
     }
 
-    const TextPurifier* tp = static_cast<TextPurifier*>(handle);
-    return tp->check(str) ? 1 : 0;
+    return 0;
 }
